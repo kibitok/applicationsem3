@@ -105,3 +105,43 @@ public class MyService extends Service {
     }
 }
 ```
+
+Create the manifest file with the permission 
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.semaplication">
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".MyService" />
+
+        <receiver
+            android:name=".MyReceiver">
+
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+
+        </receiver>
+    </application>
+
+</manifest>
+```
