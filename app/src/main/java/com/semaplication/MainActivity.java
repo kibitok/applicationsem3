@@ -81,5 +81,10 @@ public class MainActivity extends AppCompatActivity {
     public void help(MenuItem item) {
         Toast.makeText(this,"help", Toast.LENGTH_LONG).show();
     }
+    public void button (View view){
+        startActivity(new Intent(this, sound.class));
+
+        overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
+    }
 }
 
